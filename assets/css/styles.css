@@ -1,0 +1,64 @@
+html {
+  box-sizing: border-box;
+  --light-color: #f1f1f1;
+  --dark-color: #292c35;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+#container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-color);
+  transition: background-color 200ms ease-in;
+}
+
+.switcher {
+  position: relative;
+  width: 236px;
+  height: 102px;
+  border-radius: 51px;
+  background-color: #000000;
+  border: none;
+  padding: 10px;
+  transition: all 200ms ease-in;
+}
+
+.switcher > img {
+  position: absolute;
+  display: block;
+  height: calc(100% - 20px);
+  width: 30%;
+  object-fit: contain;
+  z-index: 0;
+}
+
+.switcher > img:nth-child(1) {
+  left: 4px;
+}
+
+.switcher > img:nth-child(2) {
+  right: 4px;
+}
+
+.switcher > .ball {
+  position: relative;
+  display: inline-block;
+  width: 40%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--light-color);
+  transition: transform 250ms ease-in;
+  transform: translateX(calc(-100% + 20px));
+}
+
+.switcher.active > .ball {
+  transform: translateX(calc(100% - 20px));
+}
